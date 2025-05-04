@@ -59,7 +59,6 @@ exports.login  = async(req, res) => {
         }
 
         //verify password
-
         const isValid = await user.isValidPassword(password);
         if(!isValid){
             return res.status(401).json({
@@ -68,7 +67,6 @@ exports.login  = async(req, res) => {
         }
 
         //generate jwt token
-
         const token = jwt.sign(
             {userId: user._id},
             process.env.JWT_SECRET,
